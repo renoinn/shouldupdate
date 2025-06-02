@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/BurntSushi/toml"
 )
@@ -11,9 +12,19 @@ import (
 // Config stores application names as keys and their versions as values.
 type Config map[string]string
 
-var configFile = "versions.toml"
+var configFile string
 
-// loadConfig loads the configuration from versions.toml.
+func init() {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		log.Printf("Warning: Error getting user home directory: %v. Using current directory for config file.", err)
+		configFile = "versions.toml" // Fallback to current directory
+	} else {
+		configFile = filepath.Join(homeDir, ".config", "shouldupdate", "versions.toml")
+	}
+}
+
+// loadConfig loads the configuration from the configFile.
 // If the file doesn't exist, it returns an empty Config.
 func loadConfig() (Config, error) {
 	config := make(Config)
@@ -42,13 +53,20 @@ func loadConfig() (Config, error) {
 	return config, nil
 }
 
-// saveConfig saves the configuration to versions.toml.
+// saveConfig saves the configuration to the configFile.
 func saveConfig(config Config) error {
 	// Marshal the config map to TOML []byte
 	data, err := toml.Marshal(config)
 	if err != nil {
 		log.Printf("Debug: Error marshalling config to TOML: %v", err)
 		return fmt.Errorf("could not format configuration for saving: %w", err)
+	}
+
+	// Ensure the directory structure exists
+	dirPath := filepath.Dir(configFile)
+	if err := os.MkdirAll(dirPath, 0755); err != nil {
+		log.Printf("Debug: Error creating directory structure %s: %v", dirPath, err)
+		return fmt.Errorf("could not create config directory '%s': %w", dirPath, err)
 	}
 
 	// Write the TOML data to the file
