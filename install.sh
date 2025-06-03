@@ -4,7 +4,7 @@
 set -e
 
 # --- Configuration ---
-APP_NAME="shouldupdate"
+APP_NAME="shepherd"
 REPO_URL="https://github.com/renoinn/shouldupdate.git"
 TMP_DIR="/tmp/${APP_NAME}_install_$$" # Temporary directory for cloning
 
