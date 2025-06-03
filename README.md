@@ -1,10 +1,10 @@
-# shouldupdate
+# shepherd
 
-`shouldupdate` is a command-line utility that [TODO: Add a brief description of what shouldupdate does. e.g., 'checks if your system packages need an update'].
+`shepherd` is a command-line utility that [TODO: Add a brief description of what shepherd does. e.g., 'checks if your system packages need an update'].
 
 ## Installation
 
-You can install `shouldupdate` using the provided installation script. This script will clone the repository, build the binary, and install it to a standard location on your system (Linux or macOS).
+You can install `shepherd` using the provided installation script. This script will clone the repository, build the binary, and install it to a standard location on your system (Linux or macOS).
 
 **Prerequisites:**
 *   `git`
@@ -44,15 +44,15 @@ You can install `shouldupdate` using the provided installation script. This scri
 
     The script will:
     *   Check for `git` and `go`.
-    *   Clone the latest version of the `shouldupdate` repository.
-    *   Build the `shouldupdate` binary.
+    *   Clone the latest version of the `shepherd` repository.
+    *   Build the `shepherd` binary.
     *   Attempt to install the binary to `/usr/local/bin`. If that's not possible (e.g., due to permissions), it will try to install to `~/.local/bin` (and create this directory if it doesn't exist).
-    *   If a man page (`man/shouldupdate.1`) is found in the repository, it will attempt to copy it to the corresponding man directory (`/usr/local/share/man/man1` or `~/.local/share/man/man1`).
+    *   If a man page (`man/shepherd.1`) is found in the repository, it will attempt to copy it to the corresponding man directory (`/usr/local/share/man/man1` or `~/.local/share/man/man1`).
     *   Notify you if the installation directory is not in your `PATH`.
 
 **Post-Installation: Updating your PATH (if needed)**
 
-If the installation script informs you that the installation directory (e.g., `~/.local/bin`) is not in your `PATH`, you'll need to add it to be able to run `shouldupdate` directly from your terminal.
+If the installation script informs you that the installation directory (e.g., `~/.local/bin`) is not in your `PATH`, you'll need to add it to be able to run `shepherd` directly from your terminal.
 
 Add one of the following lines to your shell's configuration file:
 
@@ -72,38 +72,38 @@ After adding the line, either restart your terminal or source the configuration 
 
 ## Uninstallation
 
-To uninstall `shouldupdate`:
+To uninstall `shepherd`:
 
 1.  **Remove the binary:**
-    *   Identify where `shouldupdate` was installed. The installation script mentions this, or you can use `which shouldupdate`.
+    *   Identify where `shepherd` was installed. The installation script mentions this, or you can use `which shepherd`.
     *   Delete the binary. For example:
         ```bash
         # If installed in ~/.local/bin
-        rm ~/.local/bin/shouldupdate
+        rm ~/.local/bin/shepherd
 
         # Or, if installed in /usr/local/bin
-        # sudo rm /usr/local/bin/shouldupdate
+        # sudo rm /usr/local/bin/shepherd
         ```
 
 2.  **Remove the man page (if installed):**
     *   If a man page was installed, remove it from the man directory.
         ```bash
         # If man page installed in ~/.local/share/man/man1
-        # rm ~/.local/share/man/man1/shouldupdate.1
+        # rm ~/.local/share/man/man1/shepherd.1
 
         # Or, if man page installed in /usr/local/share/man/man1
-        # sudo rm /usr/local/share/man/man1/shouldupdate.1
+        # sudo rm /usr/local/share/man/man1/shepherd.1
         ```
 
 ## Usage
 
-[TODO: Add instructions on how to use shouldupdate. Include common commands and examples.]
+[TODO: Add instructions on how to use shepherd. Include common commands and examples.]
 
 ```bash
-shouldupdate [options]
+shepherd [options]
 ```
 
 ---
 
-This `README.md` provides the necessary information for users to install, configure, and uninstall the `shouldupdate` application.
+This `README.md` provides the necessary information for users to install, configure, and uninstall the `shepherd` application.
 Remember to fill in the `TODO` sections with specific details about your application.

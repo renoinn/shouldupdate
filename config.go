@@ -20,7 +20,7 @@ func init() {
 		log.Printf("Warning: Error getting user home directory: %v. Using current directory for config file.", err)
 		configFile = "versions.toml" // Fallback to current directory
 	} else {
-		configFile = filepath.Join(homeDir, ".config", "shouldupdate", "versions.toml")
+		configFile = filepath.Join(homeDir, ".config", "shepherd", "versions.toml")
 	}
 }
 
